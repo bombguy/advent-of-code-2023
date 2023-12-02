@@ -1,15 +1,4 @@
-import fs from 'fs/promises'
-import path from "path";
-
-import { fileURLToPath } from "node:url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const inputFilePath = path.join(__dirname, 'input.txt');
-
-async function loadInput(): Promise<string[]> {
-    const filebuffer = await fs.readFile(inputFilePath)
-    return filebuffer.toString().split('\n')
-}
+import { loadInput, profile } from "../utils.js";
 
 const digits = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 
@@ -82,9 +71,12 @@ function puzzle2(input: string[]) {
     }, 0);
 }
 
-const input = await loadInput();
+const input = (await loadInput(1)).split('\n');
 
-const solution1 = puzzle1(input)
-const solution2 = puzzle2(input);
+profile('part 1', () => {
+    console.log(puzzle1(input));
+});
 
-console.log(solution1, solution2);
+profile('part 2', () => {
+    console.log(puzzle2(input));
+});
