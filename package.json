@@ -2,11 +2,12 @@
   "name": "advent-of-code-2023",
   "version": "1.0.0",
   "type": "module",
-  "scripts": {
-    "solution": "ts-node --esm src/index.ts"
-  },
+  "scripts": {},
   "dependencies": {
     "ts-node": "^10.9.1",
     "typescript": "^5.3.2"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^16.1.1"
   }
 }
